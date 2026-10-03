@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wipe Clock: will you reach your WARDOGS unlock before the October 15 wipe?</title>
+<meta name="description" content="Unofficial calculator for WARDOGS players: enter the XP you have, the XP you need and how much you play, and see whether you reach the unlock before the season wipe players report for October 15.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><a class="brand" href="./">Wipe Clock</a><nav><a href="./">Calculator</a><a href="wipe/">Wipe rules</a><a href="squad/">Squad board</a><a href="guides/">Questions</a></nav></header>
+<main>
+<h1>Will you reach your unlock before the wipe?</h1>
+<p class="lead">An unofficial calculator for WARDOGS players. Players report Season 2 and a progression wipe for October 15, 2026. Enter your own numbers and see if your next unlock fits before it, and how many hours a day it would take.</p>
+
+<form id="by-xp">
+  <h2>From the XP you see in game</h2>
+  <label for="cx">Your current XP on this track</label>
+  <input id="cx" name="currentXp" type="text" inputmode="numeric" placeholder="for example 180000">
+  <label for="tx">XP needed for the level you want</label>
+  <input id="tx" name="targetXp" type="text" inputmode="numeric" placeholder="read it in the game">
+  <label for="xm">XP you earn in one match</label>
+  <input id="xm" name="xpPerMatch" type="text" inputmode="numeric" value="5000">
+  <span class="tag">default reported by a player, not official</span>
+  <label for="mm">Minutes per match</label>
+  <input id="mm" name="matchMinutes" type="text" inputmode="numeric" value="60">
+  <span class="tag">default reported by a player, not official</span>
+  <label for="hd">Hours you play per day</label>
+  <input id="hd" name="hoursPerDay" type="text" inputmode="decimal" value="2">
+  <label for="wd">Wipe date</label>
+  <input id="wd" name="wipeDay" type="date" value="2026-10-15">
+  <button type="submit">Calculate</button>
+  <div class="result" aria-live="polite"></div>
+</form>
+
+<form id="by-pace">
+  <h2>From your own pace</h2>
+  <p class="note">For the case "I am a little over halfway after 40 hours": enter the hours you have put toward the unlock and how far along you are. This assumes the same pace to the end; later levels usually take longer.</p>
+  <label for="hp">Hours already played toward this unlock</label>
+  <input id="hp" name="hoursPlayed" type="text" inputmode="decimal" placeholder="for example 40">
+  <label for="pd">How far you are, in percent</label>
+  <input id="pd" name="percentDone" type="text" inputmode="decimal" placeholder="for example 55">
+  <label for="hd2">Hours you play per day</label>
+  <input id="hd2" name="hoursPerDay" type="text" inputmode="decimal" value="2">
+  <label for="wd2">Wipe date</label>
+  <input id="wd2" name="wipeDay" type="date" value="2026-10-15">
+  <button type="submit">Calculate</button>
+  <div class="result" aria-live="polite"></div>
+</form>
+
+<h2>Where the default numbers come from</h2>
+<ul>
+  <li>5,000 XP per match: <a href="https://steamcommunity.com/profiles/76561198150850950/recommended/1867240/">a Steam review of October 2, 2026</a> ("Estimated at 5000xp per round"). Reported by a player, not official.</li>
+  <li>About an hour per match: <a href="https://steamcommunity.com/profiles/76561198062379433/recommended/1867240/">a Steam review of October 1, 2026</a> ("an entire 1-hour match worth of money"). Reported by a player, not official.</li>
+  <li>The October 15 date: <a href="wipe/">see the wipe rules page</a> and its sources.</li>
+</ul>
+<p class="note">Each default comes from a single player. Your own numbers always beat them. The calculator runs in your browser: nothing you type is sent anywhere or stored.</p>
+</main>
+<footer>
+<p>Unofficial fan tool. Not affiliated with, endorsed by or connected to BULKHEAD, Team17 or Valve. WARDOGS is a game by BULKHEAD, published by Team17. Numbers marked as reported come from players and may be wrong; check in game.</p>
+<p>Made by Younes Z. Built with AI assistance, tested with automated tests, not reviewed line by line. <a href="https://github.com/Rezarys/extracttools">Source code</a> (MIT). Report a wrong number in a <a href="https://github.com/Rezarys/extracttools/issues">public issue</a>.</p>
+</footer>
+<script src="calc.js"></script>
+</body>
+</html>

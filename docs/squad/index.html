@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Squad board by link, no account | Wipe Clock</title>
+<meta name="description" content="A squad board for WARDOGS players that lives in a link: post your region, your play time and your style, share the link, no account, nothing stored.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><a class="brand" href="../">Wipe Clock</a><nav><a href="../">Calculator</a><a href="../wipe/">Wipe rules</a><a href="./">Squad board</a><a href="../guides/">Questions</a></nav></header>
+<main>
+<h1>Squad board, in a link</h1>
+<p class="lead">Start a board, add who you are, when you play and how, then post the link in your Discord, group chat or clan page. Each player who adds themselves gets a new link to post back. No account, and nothing is stored on any server: the whole board is inside the link.</p>
+
+<p id="board-msg" class="result" aria-live="polite"></p>
+
+<form id="create">
+  <h2>Start a board</h2>
+  <label for="title">Board name</label>
+  <input id="title" name="title" type="text" maxlength="40" placeholder="for example EU evening recon">
+  <button type="submit">Create board</button>
+</form>
+
+<section id="board" hidden>
+  <h2 id="board-title"></h2>
+  <table>
+    <thead><tr><th>Name</th><th>Region</th><th>When</th><th>Style</th></tr></thead>
+    <tbody id="members"></tbody>
+  </table>
+  <p id="empty" class="note">Nobody yet. Add yourself below.</p>
+
+  <form id="join">
+    <h2>Add yourself</h2>
+    <label for="m-name">In-game name</label>
+    <input id="m-name" name="name" type="text" maxlength="40">
+    <label for="m-region">Region</label>
+    <select id="m-region" name="region"></select>
+    <label for="m-when">When you play</label>
+    <input id="m-when" name="when" type="text" maxlength="40" placeholder="for example weekdays 20:00 to 23:00 CET">
+    <label for="m-style">Style</label>
+    <input id="m-style" name="style" type="text" maxlength="40" placeholder="for example medic, mic, objective">
+    <button type="submit">Add me</button>
+  </form>
+
+  <h2>Share this board</h2>
+  <input id="share" class="wide" type="text" readonly aria-label="Link to this board">
+  <button id="copy" type="button">Copy link</button>
+
+  <form id="leave">
+    <h2>Remove a name</h2>
+    <label for="l-name">Name to remove</label>
+    <input id="l-name" name="name" type="text" maxlength="40">
+    <button type="submit">Remove</button>
+  </form>
+</section>
+
+<p class="note">Anyone who has the link can read the board, so put only your in-game name, never personal details. A board holds 20 players and 40 characters per field.</p>
+</main>
+<footer>
+<p>Unofficial fan tool. Not affiliated with, endorsed by or connected to BULKHEAD, Team17 or Valve. WARDOGS is a game by BULKHEAD, published by Team17.</p>
+<p>Made by Younes Z. Built with AI assistance, tested with automated tests, not reviewed line by line. <a href="https://github.com/Rezarys/extracttools">Source code</a> (MIT).</p>
+</footer>
+<script src="../board.js"></script>
+</body>
+</html>
