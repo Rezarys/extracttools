@@ -6,11 +6,11 @@ git clone https://github.com/Rezarys/extracttools && open extracttools/docs/inde
 
 Or use it online: https://rezarys.github.io/extracttools/
 
-An unofficial calculator for WARDOGS players: enter the XP you have, the XP you need and how much you play, and see whether your next unlock fits before the Season 2 wipe that players report for October 15, 2026, and how many hours a day it would take if not.
+An unofficial calculator for WARDOGS players: enter the XP you have, the XP you need and how much you play, and see how many hours and play days your next unlock takes. Enter a wipe date, when one is announced, to see whether you make it in time and how many hours a day it would take if not. Season 2 went live on October 15, 2026; no next wipe date had been announced as of that day.
 
 It also has:
 
-- a page on what players report the wipe resets, with sources, and what is not confirmed;
+- a page on what players reported about the October 15 wipe, what the official Season 2 notes say, with sources, and what is not confirmed;
 - a squad board that lives entirely in a link: post your region, play time and style, share the link, no account;
 - ten short answers to the questions players ask most in their Steam reviews.
 

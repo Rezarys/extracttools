@@ -36,14 +36,20 @@
     var hpd = num(input.hoursPerDay);
     if (!(hpd > 0 && hpd <= 24)) return { error: 'hoursPerDay' };
     var now = input.now || new Date();
+    var noDate = String(input.wipeDay || '').trim() === '';
     var wipe = parseDay(input.wipeDay);
-    if (!wipe) return { error: 'wipeDay' };
-    var left = daysLeft(now, wipe);
+    if (!wipe && !noDate) return { error: 'wipeDay' };
     var playDays = Math.max(Math.ceil(hoursNeeded / hpd - 1e-9), 0);
     out.hours = hoursNeeded;
     out.playDays = playDays;
     // Today counts as the first play day.
     out.reachDay = playDays === 0 ? addDays(now, 0) : addDays(now, playDays - 1);
+    // The wipe date is optional: without one there is nothing to compare against.
+    if (noDate) {
+      out.noWipeDay = true;
+      return out;
+    }
+    var left = daysLeft(now, wipe);
     out.daysLeft = Math.max(left, 0);
     out.hoursAvailable = Math.max(left, 0) * hpd;
     out.beforeWipe = left > 0 && playDays <= left;
@@ -106,8 +112,10 @@
     }
     lines.push('Time still needed: ' + fmtHours(r.hours) + ', about ' + r.playDays + ' play days, done around ' +
       fmtDay(r.reachDay) + '.');
-    if (r.daysLeft <= 0) {
-      lines.push('The wipe date you entered is today or past. The result is for the new season.');
+    if (r.noWipeDay) {
+      lines.push('No wipe date entered, so there is nothing to compare with. Add one when a wipe is announced.');
+    } else if (r.daysLeft <= 0) {
+      lines.push('The wipe date you entered is today or past, so there is nothing to compare with.');
     } else if (r.beforeWipe) {
       lines.push('You make it before the wipe, with ' + fmtHours(r.hoursAvailable - r.hours) + ' to spare.');
     } else {

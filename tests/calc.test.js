@@ -74,6 +74,16 @@ test('a past wipe date says so instead of a verdict', () => {
   assert.match(C.describe(r).join(' '), /today or past/);
 });
 
+test('an empty wipe date gives the time needed and no verdict', () => {
+  const r = C.byPace({ hoursPlayed: '40', percentDone: '50', hoursPerDay: '2', wipeDay: '', now: NOW });
+  assert.strictEqual(r.error, undefined);
+  assert.strictEqual(r.noWipeDay, true);
+  assert.strictEqual(r.playDays, 20);
+  assert.strictEqual(r.beforeWipe, undefined);
+  const lines = C.describe(r);
+  assert.match(lines[lines.length - 1], /^No wipe date entered/);
+});
+
 test('every invalid field gets its own message', () => {
   const base = { currentXp: '0', targetXp: '1000', xpPerMatch: '100', matchMinutes: '30', hoursPerDay: '2',
     wipeDay: '2026-10-15', now: NOW };
